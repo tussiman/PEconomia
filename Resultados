@@ -1,0 +1,56 @@
+Valor depto promedio (3 dormitorios, Maipú): 3.663 UF
+Valor depto promedio (Las Condes): 9.384,54 UF
+
+Valor comercial dpto Maipú: 62,40 UF/m²
+Valor comercial dpto Las Condes: 91,11 UF/m²
+
+Valor metro cuadrado construcción Maipú: 47.7 UF/m²
+Valor metro cuadrado construcción Las Condes: 119,4 UF/m²
+
+Costo producción Maipú (50 metros cuadrados): 2386 UF
+Costo producción Las Condes (50 metros cuadrados): 5970 UF
+
+FPP:
+Presupuesto inmobiliaria: 50.000 UF
+Valor 50 metros cuadrados:
+	- Maipú: 2.835 UF
+	- Las Condes: 5.970 UF
+Costo de oportunidad (Supuesto):
+Maipú: 0.5
+Las Condes: 2.0 
+
+Si consideramos que cada proyecto inmobiliario abarca esos 50 metros cuadrados, 
+entonces cada 1 proyecto construido en Las Condes se podrían estar construyendo 2 en Maipú.
+Todo esto considerando como factor de producción el metro cuadrado.  
+
+Elasticidad
+
+Oferta: 2.23.
+Oferta elástica.
+
+Demanda: 7,07.
+Demanda elástica.
+
+Código gráfico fpp----------------------------------------------
+
+import matplotlib.pyplot as plt
+import numpy as np
+costo_oportunidad_maipu = 0.5
+costo_oportunidad_las_condes = 2.0
+presupuesto = 50000
+
+# Definimos los puntos de la FPP
+maipu = np.linspace(0, presupuesto / 2835, 100)
+las_condes = (presupuesto - maipu * 2835) / 5970
+
+# Creamos la gráfica
+plt.plot(maipu, las_condes, label='FPP')
+
+# Definimos los ejes y las etiquetas
+plt.xlabel('Construcción en Maipú')
+plt.ylabel('Construcción en Las Condes')
+plt.title('Frontera de Posibilidades de Producción')
+plt.legend()
+
+# Mostramos la gráfica
+plt.show()
